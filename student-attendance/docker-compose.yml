@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: student-attendance:latest
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: production
+      APP_DEBUG: 'false'
+      # Switch to sqlsrv when ready and set the following:
+      # DB_CONNECTION: sqlsrv
+      # DB_HOST: your_sqlsrv_host
+      # DB_PORT: 1433
+      # DB_DATABASE: school_attendance
+      # DB_USERNAME: sa
+      # DB_PASSWORD: YourStrong!Passw0rd
+    volumes:
+      - ./.env:/var/www/html/.env:ro
+    depends_on: []
